@@ -15,7 +15,7 @@
  */
 #include QMK_KEYBOARD_H
 
-#include keymap_swedish.h
+#include "keymap_swedish.h"
 
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
@@ -32,18 +32,18 @@ enum custom_keycodes {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
-                SE_GRV,    KC_1,  KC_2,   KC_3,    KC_4,    KC_5,    KC_6,    KC_7,     KC_8,   KC_9,     KC_0,    SE_PLUS,
-            KC_TAB,     KC_Q,   KC_W,   KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,     KC_I,   KC_O,     KC_P,    SE_AM,   KC_BSPACE,
-        KC_ESC,      DF(_FN), KC_A,   KC_S,    KC_D,    KC_F,    KC_G,    KC_H,      KC_J,  KC_K,     KC_L,    SE_OSLH, SE_AE,       KC_ENTER,
-            KC_LSHIFT, SE_LESS, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_N,       KC_M,  KC_COMMA,  KC_DOT,  SE_MINS, KC_RSHIFT,
-                KC_CTRL, KC_GUI,  KC_ALT, SE_APOS, DF(_FN), KC_ALGR, KC_SPC, DF(_FN),  KC_QUOT,  KC_DEL,   KC_PGDN,  KC_PGUP
+                SE_GRV,    KC_1,  KC_2,    KC_3,    KC_4,    KC_5,    KC_6,   KC_7,     KC_8,    KC_9,     KC_0,    SE_PLUS,
+            KC_TAB,     KC_Q,   KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,    SE_AM,   KC_BSPACE,
+        KC_ESC,      DF(_FN), KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   KC_H,     KC_J,    KC_K,     KC_L,    SE_OSLH, SE_AE,       KC_ENTER,
+            KC_LSHIFT, SE_LESS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,  KC_N,      KC_M,    KC_COMMA, KC_DOT,  SE_MINS, KC_RSHIFT,
+               KC_LCTRL, KC_LGUI, KC_LALT, SE_APOS, DF(_FN), KC_ALGR, KC_SPC, DF(_FN),  KC_QUOT, KC_DEL,   KC_PGDN,  KC_PGUP
     ),
     [_FN] = LAYOUT(
            QMKBEST, QMKURL,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         RESET,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
      RESET,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
         RESET,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
-           RESET,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,
+           RESET,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______
     )
 };
 
