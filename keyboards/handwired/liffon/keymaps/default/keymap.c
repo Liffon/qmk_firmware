@@ -20,7 +20,8 @@
 // Defines names for use in layer keycodes and the keymap
 enum layer_names {
     _BASE,
-    _FN
+    _FN,
+    _DELETE
 };
 
 // Defines the keycodes used by our macros in process_record_user
@@ -39,11 +40,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                KC_LCTRL, KC_LGUI, KC_LALT, SE_APOS, MO(_FN), KC_ALGR, KC_SPC, MO(_FN),  SE_QUOT, KC_DEL,   KC_DOWN,  KC_UP
     ),
     [_FN] = LAYOUT(
-           KC_F1,  KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,     KC_F7,     KC_F8,      KC_F9,     KC_F10,    KC_F11,    KC_F12,
-        _______,  _______,  _______,  _______,  _______,  _______,  _______,  C(KC_LEFT),  KC_UP,  C(KC_RIGHT),  _______,  _______,  _______,
-     SE_HALF,  _______,  TG(_FN),  _______,  _______,  KC_LSHIFT,  _______,  KC_HOME,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  KC_END,  _______,  MU_TOG,
-        _______,  _______,  _______,  _______,  _______,  C(KC_B),  _______,  _______,  _______,  _______,  _______,  _______,  MU_MOD,
-           _______,  RESET,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  _______,  KC_PGDN,  KC_PGUP
+           KC_F1,  KC_F2,    KC_F3,    KC_F4,      KC_F5,         KC_F6,     KC_F7,     KC_F8,      KC_F9,     KC_F10,    KC_F11,    KC_F12,
+        _______,  _______,  _______,  _______,  C(KC_B),      _______,  _______,  C(KC_LEFT),  KC_UP,  C(KC_RIGHT),  _______,  _______,  SE_GRV,
+     SE_HALF,  _______,  TG(_FN),  _______,  MO(_DELETE),  KC_LSHIFT,  _______,  KC_HOME,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  KC_END,  _______,  MU_TOG,
+        _______,  _______,  _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  MU_MOD,
+           _______,  RESET,  _______,  _______,  _______,       _______,  _______,  _______,  _______,  KC_INSERT,  KC_PGDN,  KC_PGUP
+    ),
+    [_DELETE] = LAYOUT(
+           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,   XXXXXXX,  XXXXXXX,
+        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  C(KC_BSPACE),  XXXXXXX,  C(KC_DEL),  XXXXXXX,  XXXXXXX,  XXXXXXX,
+     XXXXXXX,  XXXXXXX,  TG(_FN),  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  KC_BSPACE,  XXXXXXX,  KC_DEL,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+        XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+           XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX, XXXXXXX
     )
 };
 
