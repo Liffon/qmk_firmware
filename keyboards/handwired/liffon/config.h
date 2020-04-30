@@ -24,8 +24,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT_ID 0x0000
 #define DEVICE_VER 0x0001
 #define MANUFACTURER Liffon
-#define PRODUCT liffon
-#define DESCRIPTION A custom keyboard
+#define PRODUCT hexakeyboard
+#define DESCRIPTION Hexalinear keyboard
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -209,7 +209,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* enable basic MIDI features:
    - MIDI notes can be sent when in Music mode is on
 */
-//#define MIDI_BASIC
+#define MIDI_BASIC
 
 /* enable advanced MIDI features:
    - MIDI notes can be added to the keymap
@@ -217,7 +217,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
    - Virtual sustain, portamento, and modulation wheel
    - etc.
 */
-//#define MIDI_ADVANCED
+#define MIDI_ADVANCED
 
 /* override number of MIDI tone keycodes (each octave adds 12 keycodes and allocates 12 bytes) */
 //#define MIDI_TONE_KEYCODE_OCTAVES 1
@@ -253,3 +253,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 /* Bootmagic Lite key configuration */
 // #define BOOTMAGIC_LITE_ROW 0
 // #define BOOTMAGIC_LITE_COLUMN 0
+
+// Rotate entire keymap 180 degrees.
+// Useful for when the cable needs to be on the other side of the keyboard.
+#define ROTATED_180
