@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include "ninjonas.h"
 
-#if defined(OLED_DRIVER_ENABLE) & !defined(KEYBOARD_kyria_rev1)
+#if defined(OLED_ENABLE) & !defined(KEYBOARD_kyria_rev1)
 
 static uint32_t oled_timer = 0;
-extern uint8_t is_master;
+
 
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-  if (is_master) {
+  if (is_keyboard_master()) {
     return OLED_ROTATION_0;
   }
   return OLED_ROTATION_180;
@@ -47,15 +47,18 @@ void render_layer_state(void) {
   bool lower = layer_state_is(_LOWER) & !layer_state_is(_ADJUST);
   bool raise = layer_state_is(_RAISE) & !layer_state_is(_ADJUST);
   bool adjust = layer_state_is(_ADJUST);
+  bool numpad = layer_state_is(_NUMPAD);
 
-  if(lower){ 
-    oled_write_P(PSTR(" Lower "), true); 
-  } else if(raise){ 
-    oled_write_P(PSTR(" Raise "), true); 
-  } else if(adjust){ 
-    oled_write_P(PSTR(" Adjust "), true); 
-  } else { 
-    oled_write_P(PSTR(" Default"), false); 
+  if(lower){
+    oled_write_P(PSTR(" Lower "), true);
+  } else if(raise){
+    oled_write_P(PSTR(" Raise "), true);
+  } else if(adjust){
+      oled_write_P(PSTR(" Adjust "), true);
+  } else if(numpad) {
+      oled_write_P(PSTR(" Numpad "), true);
+  } else {
+    oled_write_P(PSTR(" Default"), false);
   }
 }
 
@@ -87,7 +90,7 @@ static void render_logo(void) {
   oled_write_P(qmk_logo, false);
 }
 
-void oled_task_user(void) {
+bool oled_task_user(void) {
     if (timer_elapsed32(oled_timer) > 15000) {
         oled_off();
         return;
@@ -96,13 +99,14 @@ void oled_task_user(void) {
     else { oled_on(); }
     #endif
 
-    if (is_master) {
+    if (is_keyboard_master()) {
         render_status();
     } else {
         render_logo();
         oled_write_P(PSTR("\n"), false);
         oled_scroll_left();
     }
+    return false;
 }
 
 #endif
