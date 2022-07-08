@@ -45,6 +45,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COL_PINS { D1, C6, D7, B5, B4, E6, F5, F6, F7, B1, B3, B2, B6 }
 #define UNUSED_PINS //{ A3, C15, C14, A6, A7, A8, A15, B10, B11, B12, A14, A13 }
 
+#define AUDIO_PIN A5
+#define AUDIO_PIN_ALT A4
+#define AUDIO_PIN_ALT_AS_NEGATIVE
+
 /* COL2ROW, ROW2COL*/
 #define DIODE_DIRECTION COL2ROW
 
