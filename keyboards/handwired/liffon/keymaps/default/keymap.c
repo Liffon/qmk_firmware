@@ -34,22 +34,22 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
                 KC_1,   KC_2,    KC_3,    KC_4,    KC_5,    KC_6,      KC_7,     KC_8,    KC_9,   KC_0,     SE_PLUS, SE_SECT,
-            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,    SE_ARNG, KC_BSPACE,
+            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,    SE_ARNG, KC_BSPC,
    ALGR_T(KC_ESC),      MO(_FN), KC_A,    KC_S,    KC_D,    KC_F,      KC_G,   KC_H,     KC_J,    KC_K,     KC_L,    SE_ODIA, SE_ADIA,    KC_ENTER,
-            KC_LSHIFT,  SE_LABK, KC_Z,    KC_X,    KC_C,    KC_V,      KC_B,  KC_N,      KC_M,    KC_COMMA, KC_DOT,  SE_MINS, KC_RSHIFT,
-              KC_LCTRL, KC_LGUI, KC_LALT, SE_QUOT, MO(_FN), KC_BSPACE, KC_SPC, MO(_FN),  SE_DIAE, KC_DEL,   KC_DOWN, KC_UP
+            KC_LSFT,  SE_LABK, KC_Z,    KC_X,    KC_C,    KC_V,      KC_B,  KC_N,      KC_M,    KC_COMMA, KC_DOT,  SE_MINS, KC_RSFT,
+              KC_LCTL, KC_LGUI, KC_LALT, SE_QUOT, MO(_FN), KC_BSPC, KC_SPC, MO(_FN),  SE_DIAE, KC_DEL,   KC_DOWN, KC_UP
     ),
     [_FN] = LAYOUT(
            KC_F1,  KC_F2,    KC_F3,    KC_F4,      KC_F5,         KC_F6,     KC_F7,     KC_F8,      KC_F9,     KC_F10,    KC_F11,    KC_F12,
         _______,  _______,  _______,  _______,  C(KC_B),      _______,  _______,  C(KC_LEFT),  KC_UP,  C(KC_RIGHT),  _______,  KC_PGUP,  SE_GRV,
-     SE_HALF,  _______,  TG(_FN),  _______,  MO(_DELETE),  KC_LSHIFT,  _______,  KC_HOME,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  KC_END,  KC_PGDN,  MU_TOG,
-        _______, KC_RCTRL,  _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  MU_MOD,
+     SE_HALF,  _______,  TG(_FN),  _______,  MO(_DELETE),  KC_LSFT,  _______,  KC_HOME,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  KC_END,  KC_PGDN,  MU_TOGG,
+        _______, KC_RCTL,  _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  MI_MOD,
            _______,  _______,  _______,  _______,  _______,       _______,  _______,  _______,  _______,  KC_INSERT,  KC_PGDN,  KC_PGUP
     ),
     [_DELETE] = LAYOUT(
            XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,   XXXXXXX,  XXXXXXX,
-        XXXXXXX,  RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  C(KC_BSPACE),  XXXXXXX,  C(KC_DEL),  XXXXXXX,  XXXXXXX,  XXXXXXX,
-     XXXXXXX,  XXXXXXX,  TG(_FN),  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,      KC_BSPACE,    XXXXXXX,  KC_DEL,  XXXXXXX,  XXXXXXX,  XXXXXXX,
+        XXXXXXX,  RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  C(KC_BSPC),  XXXXXXX,  C(KC_DEL),  XXXXXXX,  XXXXXXX,  XXXXXXX,
+     XXXXXXX,  XXXXXXX,  TG(_FN),  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,      KC_BSPC,    XXXXXXX,  KC_DEL,  XXXXXXX,  XXXXXXX,  XXXXXXX,
         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,       XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
            XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,       XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX
     )

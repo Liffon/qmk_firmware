@@ -17,15 +17,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#include "config_common.h"
-
 /* USB Device descriptor parameter */
 #define VENDOR_ID 0xFEED
 #define PRODUCT_ID 0x0000
 #define DEVICE_VER 0x0001
-#define MANUFACTURER Liffon
-#define PRODUCT hexakeyboard
-#define DESCRIPTION Hexalinear keyboard
+#define MANUFACTURER "Liffon"
+#define PRODUCT "hexakeyboard"
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -43,7 +40,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #define MATRIX_ROW_PINS { D0, D4, F4, D2, D3 }
 #define MATRIX_COL_PINS { D1, C6, D7, B5, B4, E6, F5, F6, F7, B1, B3, B2, B6 }
-#define UNUSED_PINS //{ A3, C15, C14, A6, A7, A8, A15, B10, B11, B12, A14, A13 }
 
 #define AUDIO_PIN A5
 #define AUDIO_PIN_ALT A4
@@ -200,8 +196,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* disable these deprecated features by default */
 #ifndef LINK_TIME_OPTIMIZATION_ENABLE
-  #define NO_ACTION_MACRO
-  #define NO_ACTION_FUNCTION
 #endif
 /*
  * MIDI options
