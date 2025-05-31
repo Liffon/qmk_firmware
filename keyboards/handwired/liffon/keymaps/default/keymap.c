@@ -40,7 +40,7 @@ enum custom_keycodes {
     #define LF_WORDBACKSPACE LALT(KC_BSPC)
     #define LF_WORDDELETE LALT(KC_DEL)
 #else
-    #define LF_MIDDLEMOD KC_GUI
+    #define LF_MIDDLEMOD KC_LGUI
     #define LF_RIGHTMOD KC_LALT
     #define LF_HOME KC_HOME
     #define LF_END  KC_END

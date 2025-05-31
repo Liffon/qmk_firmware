@@ -256,4 +256,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Useful for when the cable needs to be on the other side of the keyboard.
 #define ROTATED_180
 
-#define LF_MAC
+// Use mac keys
+// #define LF_MAC
