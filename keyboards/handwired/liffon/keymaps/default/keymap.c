@@ -30,6 +30,26 @@ enum custom_keycodes {
     QMKURL
 };
 
+#ifdef LF_MAC
+    #define LF_MIDDLEMOD KC_LALT
+    #define LF_RIGHTMOD KC_LGUI
+    #define LF_HOME LGUI(KC_LEFT)
+    #define LF_END  LGUI(KC_RIGHT)
+    #define LF_WORDLEFT LALT(KC_LEFT)
+    #define LF_WORDRIGHT LALT(KC_RIGHT)
+    #define LF_WORDBACKSPACE LALT(KC_BSPC)
+    #define LF_WORDDELETE LALT(KC_DEL)
+#else
+    #define LF_MIDDLEMOD KC_GUI
+    #define LF_RIGHTMOD KC_LALT
+    #define LF_HOME KC_HOME
+    #define LF_END  KC_END
+    #define LF_WORDLEFT C(KC_LEFT)
+    #define LF_WORDRIGHT C(KC_RIGHT)
+    #define LF_WORDBACKSPACE C(KC_BSPC)
+    #define LF_WORDDELETE C(KC_DEL)
+#endif
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /* Base */
     [_BASE] = LAYOUT(
@@ -37,18 +57,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
             KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,      KC_Y,   KC_U,     KC_I,    KC_O,     KC_P,    SE_ARNG, KC_BSPC,
    ALGR_T(KC_ESC),      MO(_FN), KC_A,    KC_S,    KC_D,    KC_F,      KC_G,   KC_H,     KC_J,    KC_K,     KC_L,    SE_ODIA, SE_ADIA,    KC_ENTER,
             KC_LSFT,  SE_LABK, KC_Z,    KC_X,    KC_C,    KC_V,      KC_B,  KC_N,      KC_M,    KC_COMMA, KC_DOT,  SE_MINS, KC_RSFT,
-              KC_LCTL, KC_LGUI, KC_LALT, SE_QUOT, MO(_FN), KC_BSPC, KC_SPC, MO(_FN),  SE_DIAE, KC_DEL,   KC_DOWN, KC_UP
+              KC_LCTL, LF_MIDDLEMOD, LF_RIGHTMOD, SE_QUOT, MO(_FN), KC_BSPC, KC_SPC, MO(_FN),  SE_DIAE, KC_DEL,   KC_DOWN, KC_UP
     ),
     [_FN] = LAYOUT(
            KC_F1,  KC_F2,    KC_F3,    KC_F4,      KC_F5,         KC_F6,     KC_F7,     KC_F8,      KC_F9,     KC_F10,    KC_F11,    KC_F12,
-        _______,  _______,  _______,  _______,  C(KC_B),      _______,  _______,  C(KC_LEFT),  KC_UP,  C(KC_RIGHT),  _______,  KC_PGUP,  SE_GRV,
-     SE_HALF,  _______,  TG(_FN),  _______,  MO(_DELETE),  KC_LSFT,  _______,  KC_HOME,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  KC_END,  KC_PGDN,  MU_TOGG,
-        _______, KC_RCTL,  _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  MI_MOD,
+        _______,  _______,  _______,  _______,  C(KC_B),      _______,  _______,  LF_WORDLEFT,  KC_UP,  LF_WORDRIGHT,  _______,  KC_PGUP,  SE_GRV,
+     SE_HALF,  _______,  TG(_FN),  _______,  MO(_DELETE),  KC_LSFT,  _______,  LF_HOME,  KC_LEFT,  KC_DOWN,  KC_RIGHT,  LF_END,  KC_PGDN,  MU_TOGG,
+        _______, KC_RCTL,  _______,  _______,  _______,      _______,  _______,  _______,  _______,  _______,  _______,  _______,  MU_NEXT,
            _______,  _______,  _______,  _______,  _______,       _______,  _______,  _______,  _______,  KC_INSERT,  KC_PGDN,  KC_PGUP
     ),
     [_DELETE] = LAYOUT(
            XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,   XXXXXXX,    XXXXXXX,    XXXXXXX,   XXXXXXX,   XXXXXXX,  XXXXXXX,
-        XXXXXXX,  RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  C(KC_BSPC),  XXXXXXX,  C(KC_DEL),  XXXXXXX,  XXXXXXX,  XXXXXXX,
+        XXXXXXX,  RESET,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  LF_WORDBACKSPACE,  XXXXXXX,  LF_WORDDELETE,  XXXXXXX,  XXXXXXX,  XXXXXXX,
      XXXXXXX,  XXXXXXX,  TG(_FN),  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,      KC_BSPC,    XXXXXXX,  KC_DEL,  XXXXXXX,  XXXXXXX,  XXXXXXX,
         XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,       XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,
            XXXXXXX,  XXXXXXX, XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,  XXXXXXX,       XXXXXXX,    XXXXXXX,  XXXXXXX,  XXXXXXX
@@ -57,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 const uint8_t music_map[MATRIX_ROWS][MATRIX_COLS] = LAYOUT(
         2,  5,  8, 11, 14, 17, 20, 23, 26, 29, 32, 35,
-      1,  4,  7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 
+      1,  4,  7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37,
     0,  3,  6,  9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39,
       2,  5,  8, 11, 14, 17, 20, 23, 26, 29, 32, 35, 38,
         4,  7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37

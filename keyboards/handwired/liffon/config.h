@@ -255,3 +255,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Rotate entire keymap 180 degrees.
 // Useful for when the cable needs to be on the other side of the keyboard.
 #define ROTATED_180
+
+#define LF_MAC
